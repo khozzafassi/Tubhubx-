@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tubhubx - Video</title>
+  <style>
+:root{
+  --bg:#f3f4f6;
+  --card:#ffffff;
+  --text:#0f0f0f;
+  --muted:#6b7280;
+  --red:#ff0000;
+  --pill:#e5e7eb;
+  --shadow:0 2px 8px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+body{background:var(--bg);color:var(--text);height:100vh;overflow-x:hidden;}
+
+/* Header */
+.navbar{
+  position:sticky;top:0;z-index:50;
+  background:#fff; border-bottom:1px solid #e5e7eb;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;
+}
+.logo{color:var(--red);font-weight:800;font-size:24px;}
+.pill-btn{
+  border:1px solid #ddd;background:var(--pill);color:#111;
+  padding:8px 14px;border-radius:999px;font-weight:600;
+  cursor:pointer;
+}
+
+/* Layout */
+.wrap{max-width:980px;margin:14px auto;padding:0 12px;}
+
+/* Video */
+.player{
+  border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
+  background:#000;
+}
+.player-ratio{position:relative;width:100%;padding-top:56.25%;}
+.player-ratio #rumble_v6vrw7a,
+.player-ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+/* Channel card */
+.channel-card{
+  margin-top:10px;background:var(--card);border-radius:14px;
+  padding:12px 16px;box-shadow:var(--shadow);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.c-left{display:flex;align-items:center;gap:12px;}
+.c-logo{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--red);display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-size:18px;
+}
+.c-text{display:flex;flex-direction:column;line-height:1.2}
+.c-name{font-weight:700;font-size:16px}
+.c-subs{font-size:13px;color:var(--muted);}
+.c-right{display:flex;align-items:center;gap:12px}
+.bell{font-size:22px;}
+.sub-btn{
+  background:var(--red);color:#fff;border:0;border-radius:999px;
+  padding:10px 18px;font-weight:700;cursor:pointer;
+}
+
+/* Suggested videos */
+.suggested{margin-top:16px;}
+.s-title{font-size:18px;font-weight:700;margin-bottom:10px;}
+.s-list{display:flex;flex-direction:column;gap:12px;}
+.s-card{
+  display:flex;gap:10px;background:var(--card);
+  border-radius:10px;padding:8px;text-decoration:none;color:inherit;
+  box-shadow:var(--shadow);transition:.2s;
+}
+.s-card:hover{background:#f9fafb;transform:translateY(-2px);}
+body.dark .s-card:hover{background:#2a2a2a;}
+.s-card img{
+  width:160px;height:90px;object-fit:cover;border-radius:8px;
+}
+.s-info{display:flex;flex-direction:column;justify-content:center;}
+.s-name{font-size:15px;font-weight:600;margin-bottom:4px;}
+.s-meta{font-size:13px;color:var(--muted);}
+
+/* Dark mode */
+body.dark{
+  --bg:#0f0f0f; --card:#202020; --text:#ffffff; --muted:#b3b3b3; --pill:#2c2c2c;
+  --shadow:0 2px 10px rgba(0,0,0,.25);
+}
+body.dark .navbar{background:#181818;border-bottom:1px solid #262626;}
+body.dark .pill-btn{border-color:#333;color:#fff;}
+
+/* Fullscreen */
+.fullscreen-mode .navbar,
+.fullscreen-mode .channel-card{display:none !important;}
+.fullscreen-mode .wrap{max-width:100%;margin:0;padding:0;}
+.fullscreen-mode .player{border-radius:0;height:100vh !important;width:100vw !important;box-shadow:none;}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="navbar">
+    <div class="logo">Tubhubx</div>
+    <button class="pill-btn" id="modeToggle">Light/Dark</button>
+  </div>
+
+  <main class="wrap">
+    <!-- Video -->
+    <div class="player" id="videoPlayer">
+      <div class="player-ratio">
+        <div id="rumble_v6vrw7a"></div>
+      </div>
+    </div>
+    <p style="text-align: center; font-weight: bold; font-size: 22px;">
+      Ben 10 alien force S1 E1
+    </p>
+
+    <!-- Channel card -->
+    <div class="channel-card">
+      <div class="c-left">
+        <div class="c-logo">▶</div>
+        <div class="c-text">
+          <div class="c-name">Tubhubx</div>
+          <div class="c-subs">1M subscribers</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <span class="bell">🔔</span>
+        <a href="https://youtube.com/@tubhubx?si=_y_HTsscySQpKZsK" target="_blank">
+          <button class="sub-btn">Subscribe</button>
+        </a>
+      </div>
+    </div>
+
+    <!-- Suggested Videos -->
+    <div class="suggested">
+      <h3 class="s-title">Suggested Videos</h3>
+      <div class="s-list">
+        <a href="video2.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E2</div><div class="s-meta">Tubhubx • 1.2M views • 2 days ago</div></div></a>
+        <a href="video3.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E3</div><div class="s-meta">Tubhubx • 550K views • 1 week ago</div></div></a>
+        <a href="video4.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E4</div><div class="s-meta">Tubhubx • 89K views • 5 days ago</div></div></a>
+        <a href="video5.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E5</div><div class="s-meta">Tubhubx • 550K views • 1 week ago</div></div></a>
+        <a href="video6.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E6</div><div class="s-meta">Tubhubx • 550K views • 1 week ago</div></div></a>
+        <a href="video7.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E7</div><div class="s-meta">Tubhubx • 550K views • 1 week ago</div></div></a>
+        <a href="video8.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E8</div><div class="s-meta">Tubhubx • 550K views • 1 week ago</div></div></a>
+        <a href="video9.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E9</div><div class="s-meta">Tubhubx • 550K views • 1 week ago</div></div></a>
+        <a href="video10.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E10</div><div class="s-meta">Tubhubx • 550K views • 1 week ago</div></div></a>
+        <a href="video11.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E11</div><div class="s-meta">Tubhubx • 550K views • 1 week ago</div></div></a>
+        <a href="video12.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E12</div><div class="s-meta">Tubhubx • 550K views • 1 week ago</div></div></a>
+        <a href="video13.html" class="s-card"><img src="ben1.jpg" alt="thumb"/><div class="s-info"><div class="s-name">Ben 10 alien force S1E13</div><div class="s-meta">Tubhubx • 550K views • 1 week ago</div></div></a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rumble Embed -->
+  <script>
+  !function(r,u,m,b,l,e){
+    r._Rumble=b,r[b]||(r[b]=function(){
+      (r[b]._=r[b]._||[]).push(arguments);
+      if(r[b]._.length==1){
+        l=u.createElement(m),e=u.getElementsByTagName(m)[0],l.async=1,
+        l.src="https://rumble.com/embedJS/u4msesu"+(arguments[1].video?'.'+arguments[1].video:'')+
+              "/?url="+encodeURIComponent(location.href)+"&args="+
+              encodeURIComponent(JSON.stringify([].slice.apply(arguments))),
+        e.parentNode.insertBefore(l,e)
+      }
+    })
+  }(window, document, "script", "Rumble");
+  Rumble("play", {"video":"v6vrw7a","div":"rumble_v6vrw7a"});
+
+  function fitRumble(){
+    var f=document.querySelector('#rumble_v6vrw7a iframe');
+    if(f){f.style.width='100%';f.style.height='100%';f.style.position='absolute';f.style.inset='0'}
+  }
+  window.addEventListener('load',fitRumble);
+  setTimeout(fitRumble,600);
+
+  // Dark/Light mode
+  document.getElementById('modeToggle').addEventListener('click', ()=> {
+    document.body.classList.toggle('dark');
+  });
+
+  // Orientation check
+  function checkOrientation() {
+    if(window.innerHeight < window.innerWidth){
+      document.body.classList.add('fullscreen-mode');
+    } else {
+      document.body.classList.remove('fullscreen-mode');
+    }
+  }
+  window.addEventListener('resize', checkOrientation);
+  window.addEventListener('orientationchange', checkOrientation);
+  window.addEventListener('load', checkOrientation);
+  </script>
+</body>
+</html>n checkOrientation() {
+    if(window.innerHeight < window.innerWidth){
+      document.body.classList.add('fullscreen-mode');
+    } else {
+      document.body.classList.remove('fullscreen-mode');
+    }
+  }
+  window.addEventListener('resize', checkOrientation);
+  window.addEventListener('orientationchange', checkOrientation);
+  window.addEventListener('load', checkOrientation);
+  </script>
+</body>
+</html>format' : 'iframe',
+         'height' : 50,
+         'width' : 320,
+         'params' : {}
+         };
+         </script>
+         <script type="text/javascript" src="//www.highperformanceformat.com/b55e56d8c0eb0486d4e8c6a44c6fb4ad/invoke.js"></script>
+         
+         <!-- Video 2 -->
+         <a href="video8.html" class="s-card">
+         <img src="ben1.jpg" alt="thumb"/>
+         <div class="s-info">
+         <div class="s-name">Ben 10 alien force S1E8</div>
+         <div class="s-meta">tubhubx • 550K views • 1 week ago</div>
+         </div>
+         </a>
+         
+         <script type="text/javascript">
+         atOptions = {
+         'key' : 'b55e56d8c0eb0486d4e8c6a44c6fb4ad',
+         'format' : 'iframe',
+         'height' : 50,
+         'width' : 320,
+         'params' : {}
+         };
+         </script>
+         <script type="text/javascript" src="//www.highperformanceformat.com/b55e56d8c0eb0486d4e8c6a44c6fb4ad/invoke.js"></script>
+         
+         <!-- Video 2 -->
+         <a href="video9.html" class="s-card">
+         <img src="ben1.jpg" alt="thumb"/>
+         <div class="s-info">
+         <div class="s-name">Ben 10 alien force S1E9</div>
+         <div class="s-meta">tubhubx • 550K views • 1 week ago</div>
+         </div>
+         </a>
+         <script type="text/javascript">
+         atOptions = {
+         'key' : 'b55e56d8c0eb0486d4e8c6a44c6fb4ad',
+         'format' : 'iframe',
+         'height' : 50,
+         'width' : 320,
+         'params' : {}
+         };
+         </script>
+         <script type="text/javascript" src="//www.highperformanceformat.com/b55e56d8c0eb0486d4e8c6a44c6fb4ad/invoke.js"></script>
+         
+         <!-- Video 2 -->
+         <a href="video10.html" class="s-card">
+         <img src="ben1.jpg" alt="thumb"/>
+         <div class="s-info">
+         <div class="s-name">Ben 10 alien force S1E10</div>
+         <div class="s-meta">tubhubx • 550K views • 1 week ago</div>
+         </div>
+         </a>
+         <script type="text/javascript">
+         atOptions = {
+         'key' : 'b55e56d8c0eb0486d4e8c6a44c6fb4ad',
+         'format' : 'iframe',
+         'height' : 50,
+         'width' : 320,
+         'params' : {}
+         };
+         </script>
+         <script type="text/javascript" src="//www.highperformanceformat.com/b55e56d8c0eb0486d4e8c6a44c6fb4ad/invoke.js"></script>
+         
+         <!-- Video 2 -->
+         <a href="video11.html" class="s-card">
+         <img src="ben1.jpg" alt="thumb"/>
+         <div class="s-info">
+         <div class="s-name">Ben 10 alien force S1E11</div>
+         <div class="s-meta">tubhubx • 550K views • 1 week ago</div>
+         </div>
+         </a>
+         
+         <script type="text/javascript">
+         atOptions = {
+         'key' : 'b55e56d8c0eb0486d4e8c6a44c6fb4ad',
+         'format' : 'iframe',
+         'height' : 50,
+         'width' : 320,
+         'params' : {}
+         };
+         </script>
+         <script type="text/javascript" src="//www.highperformanceformat.com/b55e56d8c0eb0486d4e8c6a44c6fb4ad/invoke.js"></script>
+         
+         <!-- Video 2 -->
+         <a href="video12.html" class="s-card">
+         <img src="ben1.jpg" alt="thumb"/>
+         <div class="s-info">
+         <div class="s-name">Ben 10 alien force S1E12</div>
+         <div class="s-meta">tubhubx • 550K views • 1 week ago</div>
+         </div>
+         </a>
+         
+         <script type="text/javascript">
+         atOptions = {
+         'key' : 'b55e56d8c0eb0486d4e8c6a44c6fb4ad',
+         'format' : 'iframe',
+         'height' : 50,
+         'width' : 320,
+         'params' : {}
+         };
+         </script>
+         <script type="text/javascript" src="//www.highperformanceformat.com/b55e56d8c0eb0486d4e8c6a44c6fb4ad/invoke.js"></script>
+         
+         <!-- Video 2 -->
+         <a href="video13.html" class="s-card">
+         <img src="ben1.jpg" alt="thumb"/>
+         <div class="s-info">
+         <div class="s-name">Ben 10 alien force S1E13</div>
+         <div class="s-meta">tubhubx • 550K views • 1 week ago</div>
+         </div>
+         </a>
+         <script type="text/javascript">
+         atOptions = {
+         'key' : 'b55e56d8c0eb0486d4e8c6a44c6fb4ad',
+         'format' : 'iframe',
+         'height' : 50,
+         'width' : 320,
+         'params' : {}
+         };
+         </script>
+         <script type="text/javascript" src="//www.highperformanceformat.com/b55e56d8c0eb0486d4e8c6a44c6fb4ad/invoke.js"></script>
+         
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Rumble Embed -->
+  <script>
+  !function(r,u,m,b,l,e){
+    r._Rumble=b,r[b]||(r[b]=function(){
+      (r[b]._=r[b]._||[]).push(arguments);
+      if(r[b]._.length==1){
+        l=u.createElement(m),e=u.getElementsByTagName(m)[0],l.async=1,
+        l.src="https://rumble.com/embedJS/u4msesu"+(arguments[1].video?'.'+arguments[1].video:'')+
+              "/?url="+encodeURIComponent(location.href)+"&args="+
+              encodeURIComponent(JSON.stringify([].slice.apply(arguments))),
+        e.parentNode.insertBefore(l,e)
+      }
+    })
+  }(window, document, "script", "Rumble");
+
+  Rumble("play", {"video":"v6vrw7a","div":"rumble_v6vrw7a"});
+
+  function fitRumble(){
+    var f=document.querySelector('#rumble_v6vrw7a iframe');
+    if(f){f.style.width='100%';f.style.height='100%';f.style.position='absolute';f.style.inset='0'}
+  }
+  window.addEventListener('load',fitRumble);
+  setTimeout(fitRumble,600);
+
+  // Dark/Light mode
+  document.getElementById('modeToggle').addEventListener('click', ()=> {
+    document.body.classList.toggle('dark');
+  });
+
+  // Orientation check
+  function checkOrientation() {
+    if(window.innerHeight < window.innerWidth){
+      document.body.classList.add('fullscreen-mode');
+    } else {
+      document.body.classList.remove('fullscreen-mode');
+    }
+  }
+  window.addEventListener('resize', checkOrientation);
+  window.addEventListener('orientationchange', checkOrientation);
+  window.addEventListener('load', checkOrientation);
+  </script>
+</body>
+<html> type='text/javascript' src='//pl27478939.profitableratecpm.com/12/d0/ab/12d0ab7f9ee98516190e23d09c42b722.js'></script>
+</html> }
+  window.addEventListener('resize', checkOrientation);
+  window.addEventListener('orientationchange', checkOrientation);
+  window.addEventListener('load', checkOrientation);
+  </script>
+</body><script type='text/javascript' src='//pl27478939.profitableratecpm.com/12/d0/ab/12d0ab7f9ee98516190e23d09c42b722.js'></script>
+</html>ml>
