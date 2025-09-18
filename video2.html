@@ -1,0 +1,110 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tubhubx - Video</title>
+  <style>
+    :root{
+      --bg:#f3f4f6; --card:#fff; --text:#0f0f0f; --muted:#6b7280; --red:#ff0000;
+      --pill:#e5e7eb; --shadow:0 2px 8px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+    body{background:var(--bg);color:var(--text);}
+    .navbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;}
+    .logo{color:var(--red);font-weight:800;font-size:24px;letter-spacing:.2px}
+    .pill-btn{border:1px solid #ddd;background:var(--pill);color:#111;padding:8px 14px;border-radius:999px;font-weight:600;cursor:pointer;outline:none;}
+    .wrap{max-width:980px;margin:14px auto;padding:0 12px;}
+    .player{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:#000;}
+    .player-ratio{position:relative;width:100%;padding-top:56.25%;}
+    .player-ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+    .channel-card{margin-top:10px;background:var(--card);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;}
+    .c-left{display:flex;align-items:center;gap:12px;}
+    .c-logo{width:42px;height:42px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;}
+    .c-text{display:flex;flex-direction:column;line-height:1.2}
+    .c-name{font-weight:700;font-size:16px}
+    .c-subs{font-size:13px;color:var(--muted);margin-top:2px}
+    .c-right{display:flex;align-items:center;gap:12px}
+    .bell{font-size:22px;line-height:1}
+    .sub-btn{background:var(--red);color:#fff;border:0;border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer;}
+    body.dark{--bg:#0f0f0f; --card:#202020; --text:#fff; --muted:#b3b3b3; --pill:#2c2c2c; --shadow:0 2px 10px rgba(0,0,0,.25);}
+    body.dark .navbar{background:#181818;border-bottom:1px solid #262626;}
+    body.dark .pill-btn{border-color:#333;color:#fff;}
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">Tubhubx</div>
+    <button class="pill-btn" id="modeToggle">Light/Dark</button>
+  </div>
+
+  <main class="wrap">
+    <!-- Video -->
+    <div class="player">
+      <div class="player-ratio">
+        <iframe src="https://player.vimeo.com/video/1119350523" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Channel card -->
+    <div class="channel-card">
+      <div class="c-left">
+        <div class="c-logo">▶</div>
+        <div class="c-text">
+          <div class="c-name">Tubhubx</div>
+          <div class="c-subs">1M subscribers</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <span class="bell">🔔</span>
+        <a href="https://www.youtube.com/@tubhshsbab?si=JOsSbNjyMhFtcBqF" target="_blank" rel="noopener">
+          <button class="sub-btn">Subscribe</button>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Dark mode toggle
+    document.getElementById('modeToggle').addEventListener('click', ()=> {
+      document.body.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>        <button class="sub-btn">Subscribe</button>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rumble Embed -->
+  <script>
+  !function(r,u,m,b,l,e){
+    r._Rumble=b,r[b]||(r[b]=function(){
+      (r[b]._=r[b]._||[]).push(arguments);
+      if(r[b]._.length==1){
+        l=u.createElement(m),e=u.getElementsByTagName(m)[0],l.async=1,
+        l.src="https://rumble.com/embedJS/u4msesu"+(arguments[1].video?'.'+arguments[1].video:'')+
+              "/?url="+encodeURIComponent(location.href)+"&args="+
+              encodeURIComponent(JSON.stringify([].slice.apply(arguments))),
+        e.parentNode.insertBefore(l,e)
+      }
+    })
+  }(window, document, "script", "Rumble");
+
+  Rumble("play", {"video":"v6vshvw","div":"rumble_v6vrw7a"});
+
+  function fitRumble(){
+    var f=document.querySelector('#rumble_v6vrw7a iframe');
+    if(f){f.style.width='100%';f.style.height='100%';f.style.position='absolute';f.style.inset='0'}
+  }
+  window.addEventListener('load',fitRumble);
+  setTimeout(fitRumble,600);
+
+  document.getElementById('modeToggle').addEventListener('click', ()=> {
+    document.body.classList.toggle('dark');
+  });
+     </script>
+  </body>
+  </html>
